@@ -10,6 +10,12 @@ namespace ObjectLifetime
     {
         static void Main(string[] args)
         {
+            Car myCar = new Car();
         }
+    }
+    
+    class Car
+    {
+
     }
 }
