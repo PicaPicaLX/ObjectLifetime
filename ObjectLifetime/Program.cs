@@ -11,9 +11,10 @@ namespace ObjectLifetime
         static void Main(string[] args)
         {
             Car myCar = new Car(); // 在Car类中创建新实例myCar
+            Car.MyMethod(); // 调用了Car类中自定义方法MyMethod
             Car myThirdCar = new Car("Ford", "Escape", 2005, "White"); 
             
-            
+                                                         /*
             
             myCar.Make = "OldMobile"; // 将这些代码注释后，由于在Car类中已经内置了构造函数，因此不需要我们在类之外对myCar再次设置参数
             myCar.Model = "Cutlas Supreme";
@@ -39,7 +40,7 @@ namespace ObjectLifetime
                 myCar.Color);
 
             Console.WriteLine("{0} {1} {2} {3}", myThirdCar.Make, myThirdCar.Model, myThirdCar.Year, myThirdCar.Color);
-
+                                                       */
             Console.ReadLine();
             // 也可以直接在类中写构造函数
         }
@@ -51,6 +52,7 @@ namespace ObjectLifetime
         public string Model { get; set; }
         public int Year { get; set; }
         public string Color { get; set; }
+        
         
         public Car() // 构造函数
         {
@@ -70,6 +72,13 @@ namespace ObjectLifetime
         }
         // 若将构造函数标注，则系统默认调用类中的参数设置方法(48-51行)，同时手动输入参数(18-21)行就可创建新实例
         // 若不手动设置参数，则新实例没有任何内容
+        
+        public static void MyMethod() // 这是静态方法(静态对象)   ，和动态方法的区别就是关键字里多了static
+        {
+            Console.WriteLine("This is my method.");
+            Console.WriteLine(Make); 
+
+        }
     }
 }
 
