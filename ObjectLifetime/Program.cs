@@ -27,9 +27,8 @@ namespace ObjectLifetime
                 myOtherCar.Model, 
                 myOtherCar.Year, 
                 myOtherCar.Color); // 因为两个变量指向同一个值，因此无论输出哪一个，得到的是相同的
-            //Console.ReadLine();
 
-            //myOtherCar = null; // 现在句柄不再指向任何内存中的实例,则下一步设置Model时会出错
+            myOtherCar = null; // 现在句柄不再指向任何内存中的实例,则下一步设置Model时会出错
 
             myOtherCar.Model = "98"; // 这一步将Model改为98       
             Console.WriteLine("修改后: " + "{0} {1} {2} {3}", 
@@ -40,7 +39,6 @@ namespace ObjectLifetime
             
             myCar = null; // 现在句柄不再指向任何内存中的实例
             Console.ReadLine();
-            // 上几步操作证明了同一个内存对象可以有两个引用，类似一个气球有两条线，牵任何一条都可以找到气球
             /* 如何失去引用？(就是无法访问这些值)下面有几种方法
              * 1------------------------------------------------------------------------------------------------
              * 当线程不再访问这个数值(即汽车的相关属性),即没有任何引用指向这些值时，这个值就会被清零(就是当执行完SVM时清零)
